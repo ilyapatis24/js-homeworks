@@ -6,7 +6,6 @@ function solveEquation(a, b, c) {
   let root1 = (-b + Math.sqrt(descriminant) )/(2*a);
   let root2 =  (-b - Math.sqrt(descriminant) )/(2*a);
   arr.push(root1,root2);
-  return arr;
   }
 
   if (descriminant === 0){
@@ -23,10 +22,7 @@ function calculateTotalMortgage(percent, contribution, amount, countMonths) {
 	if (isNaN(percentage) || percentage < 0) {
 		return `false`;
 	}
-  let s = amountNumber - contrAmount;
-  let n = countMonths;
-  let pay = s * (percentage + percentage / (((1 + percentage) ** n) - 1));
-  let totalAmount = (pay * n).toFixed(2);
-  console.log(totalAmount);
-  return +totalAmount;
+  let loanBody = amountNumber - contrAmount;
+  let monthlyPayment = loanBody * (percentage + percentage / (((1 + percentage) ** countMonths) - 1));
+  return Math.round(monthlyPayment*countMonths*100)/100;
 }
