@@ -39,7 +39,6 @@ function differenceEvenOddWorker(...arr) {
       sumOddElement += num;
     }
   }
-
   return sumEvenElement - sumOddElement;
 }
 
