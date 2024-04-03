@@ -17,7 +17,9 @@ function differenceMaxMinWorker(...arr) {
   let min = Math.min(...arr);
   let max = Math.max(...arr);
   let difference = max - min;
-  if(arr.length === 0) return 0;
+  if(arr.length === 0) {
+    return 0;
+  }
   return difference;
 }
 
@@ -26,10 +28,16 @@ function differenceEvenOddWorker(...arr) {
   let sumOddElement = 0;
   let i;
 
-  if(arr.length === 0) return 0;
-
+  if(arr.length === 0) {
+    return 0;
+  }
   for(const num of arr) {
-    if((num % 2) === 0) sumEvenElement += num; else sumOddElement += num;
+    if((num % 2) === 0) {
+      sumEvenElement += num;
+    }
+    else {
+      sumOddElement += num;
+    }
   }
 
   return sumEvenElement - sumOddElement;
@@ -55,10 +63,10 @@ function makeWork(arrOfArr, func) {
   if(arrOfArr.length === 0) return 0;
 
   for(let arr of arrOfArr) {
-    // numbers = arrOfArr[i];
     result = func(...arr);
-    if(result > maxWorkerResult) maxWorkerResult = result;
+    if(result > maxWorkerResult) {
+      maxWorkerResult = result;
+    }
   }
-
   return maxWorkerResult;
 }
