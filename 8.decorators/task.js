@@ -19,6 +19,25 @@ function cachingDecoratorNew(func) {
   return wrapper;
 }
 
+// Без MD5
+// function cachingDecoratorNew(func) {
+//   let cache = {};
+//   return (...args) => {
+//     const hash = args.join(`,`);
+//     let cacheKeys = Object.keys(cache);
+//     if (cacheKeys.length > 5) {
+//       delete cache[cacheKeys[0]];
+//     }
+//     if (hash in cache) {
+//       return `Из кэша: ${cache[hash]}`;
+//     }
+//     const result = func(...args);
+//     cache[hash] = result;
+//     return `Вычисляем: ${result}`;
+//   }
+// }
+
+
 //Mission 2
 function debounceDecoratorNew(func, delay) {
   let timeoutId;
